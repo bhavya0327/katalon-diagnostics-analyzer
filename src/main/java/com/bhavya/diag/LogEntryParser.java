@@ -3,6 +3,7 @@ package com.bhavya.diag;
 public class LogEntryParser {
     public LogEntry parse(String entryLine, String messageLine) {
         String [] parts = entryLine.split("\\s+");
+        // String [] parts = entryLine.split(" ");
 
         if (parts.length<3) {
             throw new LogParseException("Not a valid !ENTRY line: "+entryLine+" ");

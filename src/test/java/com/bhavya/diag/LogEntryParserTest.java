@@ -28,4 +28,12 @@ class LogEntryParserTest {
             parser.parse("!ENTRY com.kms.katalon.core", "!MESSAGE Something broke"));
     }
 
+    @Test
+    void toleratesExtraSpacesInEntryLine() {
+        LogEntry entry = parser.parse("!ENTRY    com.kms.katalon.core 1 0     2026-11-20 10:15:32.123", "!MESSAGE Unable to start browser session");
+
+        assertEquals("com.kms.katalon.core", entry.getBundle());
+        assertEquals(1, entry.getSeverity());
+    }
+
 }
