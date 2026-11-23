@@ -11,6 +11,8 @@ class LogEntryTest {
 
         assertEquals("com.kms.katalon.core", entry.getBundle());
         assertTrue(entry.isError());
+
+        assertEquals("Unable to start browser session", entry.getMessage());
     }
 
     @Test
