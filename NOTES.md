@@ -1,44 +1,38 @@
-# Learning Notes: Katalon Diagnostics Analyzer
-
-My log of what I learn while building this project. Written in my own words, not copied.
-
-**How to use this file**
-
-- Add a new **Day** entry at the top of the *Daily log* each session.
-- When a concept "clicks", add it to *Concepts* with a one-line explanation and an example.
-- Every error I hit goes into the *Error log*. These are my future RCA patterns.
-- Keep *Interview questions* updated: if I can answer it out loud without notes, tick it.
-
----
-
 ## Daily log
 
 ### Day 1 · Mon 23 Nov 2026: Project setup and first class
 
 **Goal:**
+ - Implementing Java code, setting up the pom.xml and running the tests through maven.
 
 **What I built:**
+ - Created LogEntry (models one Eclipse .log entry) and LogEntryTest, which checks its behavior. The test depends on the class, not the other way round.
+ - Initially understood the variable declarations and constructor creation.
 
 **What I learned:**
+- Maven lifecycle: phases run in a fixed order (validate → compile → test → package); mvn test runs every phase up to and including test. There is no run phase.
+- Constructor should have the same name as the class
+- Constructor Should not have a return type
+- this.severity = severity; means "my field (this.severity) gets the value passed in (severity)"
+- final is a promise that the field is assigned exactly once, before the constructor finishes. The compiler checks every path through the constructor. When the constructor ends and message was never assigned, the promise is broken, so Java refuses to build.
+- final turns a runtime bug into a compile error. Compile errors are the cheapest bugs to fix.
 
-- JDK vs JVM vs Maven:
-- Maven lifecycle:
-- Dependency scope:
-- TDD (red → green → refactor):
-- Class, fields, constructor, getters:
-- `private final` and immutability:
-- Git: working directory, index, history:
 
 **What confused me / still unclear:**
+ - Need to understand more on creating and the use of constructors.
+ - Need to understand more on the variable declaration and the modifiers.
 
 **Link to Katalon (where I've seen this in tickets or the product):**
+ - Studio's .metadata/.log uses severity 4 for errors; I see these in customer startup tickets.
 
 **Commits:**
+ - 5887d29 (LogEntry + tests)
 
 ---
 
 <!-- Copy this block for each new day -->
-### Day N · <date>: <topic>
+### Day 2 · Mon 23 Nov 2026: Turn normal error lines into Log Entry
+
 
 **Goal:**
 

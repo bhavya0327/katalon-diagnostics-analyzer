@@ -22,4 +22,10 @@ class LogEntryParserTest {
         assertEquals(2, entry.getSeverity());
     }
 
+    @Test
+    void rejectsTruncatedEntryLine() {
+        assertThrows(LogParseException.class, () -> 
+            parser.parse("!ENTRY com.kms.katalon.core", "!MESSAGE Something broke"));
+    }
+
 }

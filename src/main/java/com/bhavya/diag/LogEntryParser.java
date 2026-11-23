@@ -4,6 +4,10 @@ public class LogEntryParser {
     public LogEntry parse(String entryLine, String messageLine) {
         String [] parts = entryLine.split("\\s+");
 
+        if (parts.length<3) {
+            throw new LogParseException("Not a valid !ENTRY line: "+entryLine+" ");
+        }
+
         String bundle = parts [1];
         int severity = Integer.parseInt(parts [2]);
 
